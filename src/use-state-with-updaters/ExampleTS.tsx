@@ -32,7 +32,7 @@ function wrapUpdaters<
   }, {} as IWrappedUpdaterDictionary);
 }
 
-function useStateWithUpdaters<
+export function useStateWithUpdaters<
   TState extends IObject,
   TUpdaters extends IUpdaterDictionary<TState>
 >(

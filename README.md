@@ -1,3 +1,39 @@
+### useStateWithUpdaters
+userReducer alternative [Discussion](https://github.com/reactjs/rfcs/issues/185)
+
+This repository contains TypeScript and JS versions.   
+[Source code](src/use-state-with-updaters)
+
+##### Usage
+```jsx
+const updaters = {
+  subtract: (prevState, value) => ({
+    ...prevState,
+    count: prevState.count - value,
+  }),
+  add: (prevState, value) => ({ ...prevState, count: prevState.count + value }),
+};
+
+export const Example = () => {
+  const [{ count }, { add, subtract }] = useStateWithUpdaters(
+    { count: 0 },
+    updaters,
+  );
+  return (
+    <div>
+      Count: {count}
+      <button onClick={() => subtract(1)}>-</button>
+      <button onClick={() => add(1)}>+</button>
+    </div>
+  );
+};
+```
+
+### useHooksLikeDirectives
+todo
+
+___
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

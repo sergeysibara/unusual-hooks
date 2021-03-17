@@ -22,7 +22,7 @@ const wrapUpdaters = (rawUpdaters, updateState) => {
  * @param {object} rawUpdaters
  * @returns {[object, object]} [state, wrappedUpdaters]
  */
-function useStateWithUpdaters(defaultState, rawUpdaters) {
+export function useStateWithUpdaters(defaultState, rawUpdaters) {
   const [state, updateState] = useState(defaultState);
 
   const wrappedUpdaters = useRef(null);
@@ -32,6 +32,8 @@ function useStateWithUpdaters(defaultState, rawUpdaters) {
 
   return [state, wrappedUpdaters.current];
 }
+
+// USING EXAMPLE:
 
 const updaters = {
   subtract: (prevState, value) => ({

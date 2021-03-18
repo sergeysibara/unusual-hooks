@@ -1,21 +1,28 @@
 import { useStateWithUpdaters } from './useStateWithUpdaters';
 
+interface ICounterState {
+  count: number;
+}
+
 const updaters = {
-  subtract: (prevState, value) => ({
+  subtract: (prevState: ICounterState, value: number) => ({
     ...prevState,
     count: prevState.count - value,
   }),
-  add: (prevState, value) => ({ ...prevState, count: prevState.count + value }),
+  add: (prevState: ICounterState, value: number) => ({
+    ...prevState,
+    count: prevState.count + value,
+  }),
 };
 
 export const Example = () => {
-  const [{ count }, { add, subtract }] = useStateWithUpdaters(
+  const [{ count }, { subtract, add }] = useStateWithUpdaters(
     { count: 0 },
     updaters,
   );
   return (
     <div>
-      Count: {count}
+      TypeScript. Count: {count}
       <button onClick={() => subtract(1)}>-</button>
       <button onClick={() => add(1)}>+</button>
     </div>

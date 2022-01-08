@@ -1,4 +1,4 @@
-### useStateWithUpdaters - userReducer alternative
+### useStateWithUpdaters - useReducer alternative
 [Discussion](https://github.com/reactjs/rfcs/issues/185)
 
 TypeScript and JS versions: [Source code](src/use-state-with-updaters)
